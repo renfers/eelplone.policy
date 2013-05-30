@@ -172,8 +172,11 @@ class ChangeOwner(grok.View):
         """
 
         #1. Change object ownership
-        acl_users = getattr(self.context, 'acl_users')
-        user = acl_users.getUserById(new_owner)
+        # changing the way it retrieve user (member)
+        #acl_users = getattr(self.context, 'acl_users')
+        #user = acl_users.getUserById(new_owner)
+        mt = getToolByName(self.context, 'portal_membership')
+        user = mt.getMemberById(new_owner)
 
         if user is None:
             user = self.membership.getMemberById(new_owner)
