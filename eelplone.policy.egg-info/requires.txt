@@ -1,0 +1,4 @@
+setuptools
+five.grok
+z3c.jbot
+collective.monkeypatcher

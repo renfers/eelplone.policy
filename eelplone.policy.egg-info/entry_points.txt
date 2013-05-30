@@ -1,0 +1,9 @@
+
+      [z3c.autoinclude.plugin]
+      target = plone
+      [console_scripts]
+      testldap = eelplone.policy.scripts.testldap:run
+      testldap_require_cert = eelplone.policy.scripts.testldap:run_require_cert
+      testldap_ignore_cert = eelplone.policy.scripts.testldap:run_ignore_cert
+      testldap_search_groups = eelplone.policy.scripts.testldap:search_groups
+      

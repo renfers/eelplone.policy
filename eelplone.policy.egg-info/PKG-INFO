@@ -1,0 +1,12 @@
+Metadata-Version: 1.1
+Name: eelplone.policy
+Version: 1.0
+Summary: A Plone policy and customization product
+Home-page: UNKNOWN
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: GPL2
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Framework :: Plone
+Classifier: Programming Language :: Python

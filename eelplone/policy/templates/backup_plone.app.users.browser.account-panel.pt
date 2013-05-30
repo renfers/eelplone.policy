@@ -1,0 +1,88 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone">
+
+<head>
+
+</head>
+
+<body>
+    <div class="cell width-full position-0"
+         tal:define="getmacro nocall: context/account-macro;"
+         metal:fill-slot="content">
+
+
+        <div id="edit-bar">
+
+            <h5 class="hiddenStructure"
+                i18n:translate="heading_views">Views</h5>
+
+            <ul class="contentViews"
+                id="content-views"
+                tal:define="view_name view/__name__"
+                i18n:domain="plone">
+
+                <li id="contentview-user_data-personal-information"
+                    tal:define="link view/getPersonalInfoLink;
+                                selected python:view_name=='personal-information'"
+                    tal:condition="link|nothing"
+                    tal:attributes="class python:selected and 'selected' or 'plain'">
+                    <a href=""
+                       tal:attributes="href string:${context/portal_url}/${link}" >
+                        Informations
+                    </a>
+                </li>
+
+                <li id="contentview-user_data-personal-preferences"
+                    tal:define="link view/getPersonalPrefsLink;
+                                selected python:view_name=='personal-preferences';"
+                    tal:condition="link|nothing"
+                    tal:attributes="class python:selected and 'selected' or 'plain'">
+                    <a href=""
+                       tal:attributes="href string:${context/portal_url}/${link}"
+                       >
+                       Pr&eacute;f&eacute;rences
+                    </a>
+                </li>
+
+                <tal:defs define="portal_properties nocall:context/portal_properties;
+                                  eelprops nocall:portal_properties/eel_properties;
+                                  change_password_url_for_etat python:eelprops.getProperty('change_password_url_for_etat', 'https://missing-url');
+                                  change_password_url_for_eleves python:eelprops.getProperty('change_password_url_for_eleves', 'https://missing-url')" >
+
+                  <li id="contentview-user_data-change-password"
+                      tal:define="selected python:view_name=='change-password';"
+                      tal:attributes="class python:selected and 'selected' or 'plain'">
+                    <a href="https://rectech.etat-ge.ch/ginaedu_public/password/"
+                       tal:attributes="href change_password_url_for_eleves"
+                       title="Changer le mot de passe (Eleves)" >
+                        Mot de passe (El&egrave;ves)
+                    </a>
+                  </li>
+
+                  <li id="contentview-user_data-change-password-profs"
+                      tal:define="selected python:view_name=='change-password';"
+                      tal:attributes="class python:selected and 'selected' or 'plain'">
+                    <a href="https://rectech.etat-ge.ch/ginamanager/"
+                       tal:attributes="href change_password_url_for_etat"
+                       title="Changer le mot de passe (Enseignants et PAT)"	>
+                        Mot de passe (Enseigants et PAT)
+                    </a>
+                  </li>
+
+                </tal:defs>
+
+            </ul>
+
+            <div class="contentActions">&nbsp;</div>
+        </div>
+    
+       <metal:use_form use-macro="python: getmacro('main')"/>
+
+    </div>
+</body>
+</html>

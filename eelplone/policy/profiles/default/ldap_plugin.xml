@@ -1,0 +1,112 @@
+<?xml version="1.0"  ?>
+<ldapplugins>
+    
+        <ldapplugin title="Plone managed LDAP" id="ldap-plugin" meta_type="Plone LDAP plugin" update="False">
+            <property id="_login_attr" type="str">
+                <item value="cn"/>
+            </property>
+            <property id="_uid_attr" type="str">
+                <item value="cn"/>
+            </property>
+            <property id="_rdnattr" type="str">
+                <item value="uid"/>
+            </property>
+            <property id="users_base" type="str">
+                <item value="o=USR,dc=EEL"/>
+            </property>
+            <property id="users_scope" type="int">
+                <item value="2"/>
+            </property>
+            <!-- property id="_local_groups" type="bool">
+                <item value="False"/>
+            </property -->
+            <property id="_implicit_mapping" type="int">
+                <item value="0"/>
+            </property>
+            <property id="groups_base" type="str">
+                <item value="ou=UOXXXX,ou=YY,ou=EEL,o=GRP,dc=EEL"/>
+            </property>
+            <property id="groups_scope" type="int">
+                <item value="2"/>
+            </property>
+            <property id="_binduid" type="str">
+                <item value="cn=TCNEELCMSAFG,ou=CMS,ou=TCN,dc=EEL"/>
+            </property>
+            <property id="_bindpwd" type="str">
+                <item value=""/>
+            </property>
+            <property id="_binduid_usage" type="int">
+                <item value="1"/>
+            </property>
+            <property id="read_only" type="bool">
+                <item value="True"/>
+            </property>
+            <property id="_user_objclasses" type="list">
+                <item value="inetOrgPerson,organizationalPerson,person,top"/>
+            </property>            
+            <property id="_pwd_encryption" type="str">
+                <item value="SHA"/>
+            </property>
+            <property id="_roles" type="list">
+                <item value="Member"/>
+            </property>
+            <schema>
+                <attr id="mail">
+                    <item id="public_name" value="email"/>
+                    <item id="ldap_name" value="mail"/>
+                    <item id="friendly_name" value="Email address"/>
+                    <item id="multivalued" value="False"/>                
+                </attr>
+                <attr id="displayName">
+                    <item id="public_name" value="fullname"/>
+                    <item id="binary" value="False"/>
+                    <item id="ldap_name" value="displayName"/>
+                    <item id="friendly_name" value="Fullname"/>
+                    <item id="multivalued" value="False"/>                
+                </attr>
+                <attr id="uid">
+                    <item id="public_name" value=""/>
+                    <item id="ldap_name" value="uid"/>
+                    <item id="friendly_name" value="User id"/>
+                    <item id="multivalued" value="False"/>                
+                </attr>
+                <attr id="cn">
+                    <item id="public_name" value="None"/>
+                    <item id="ldap_name" value="cn"/>
+                    <item id="friendly_name" value="Canonical Name"/>
+                    <item id="multivalued" value="False"/>                
+                </attr>
+                <attr id="sn">
+                    <item id="public_name" value=""/>
+                    <item id="ldap_name" value="sn"/>
+                    <item id="friendly_name" value="Surname (unused)"/>
+                    <item id="multivalued" value="False"/>                
+                </attr>
+
+                <attr id="l">
+                    <item id="public_name" value="location"/>
+                    <item id="ldap_name" value="l"/>
+                    <item id="friendly_name" value="Location"/>
+                    <item id="multivalued" value="False"/>                
+                </attr>
+
+                <!-- attr id="businessCategory">
+                    <item id="public_name" value="ecole"/>
+                    <item id="ldap_name" value="businessCategory"/>
+                    <item id="friendly_name" value="Ecole / businessCategory"/>
+                    <item id="multivalued" value="True"/>                
+                </attr -->
+                
+            </schema>
+         
+            <server update="False" delete="False"> 
+                <item id="host" value="ldapedu.ge.ch" type="str"/>
+                <item id="op_timeout" value="-1" type="int"/>
+                <item id="protocol" value="ldaps" type="str"/>
+                <item id="port" value="636" type="str"/> 
+                <item id="conn_timeout" value="5" type="int"/>
+            </server> 
+           
+        </ldapplugin>
+    
+</ldapplugins>

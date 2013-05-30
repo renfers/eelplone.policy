@@ -1,0 +1,59 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:cmf="http://namespaces.zope.org/cmf"
+    xmlns:grok="http://namespaces.zope.org/grok"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="eelplone.policy">
+
+  <include package="five.grok" />
+
+  <five:registerPackage package="." initialize=".initialize" />
+
+  <grok:grok package="." />
+
+  <i18n:registerTranslations directory="locales" />
+
+  <include file="patches.zcml" />
+  
+  <genericsetup:registerProfile
+      name="default"
+      title="EEL Plone Policy and Customization default profile"
+      directory="profiles/default"
+      description=''
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <!-- genericsetup:importStep
+      name="eelplone.policy-import"
+      title="EEL Plone Policy and Customization import handlers"
+      description=""
+      handler="eelplone.policy.setuphandlers.import_various" 
+      / -->
+
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="EEL Plone Policy and Customization uninstall profile"
+      directory="profiles/uninstall"
+      description=""
+      provides="Products.GenericSetup.interfaces.EXTENSION" 
+      />
+
+  <!-- Override for templates - Load template overrides using z3c.jbot -->
+  <include package="z3c.jbot" file="meta.zcml" />
+  <browser:jbot
+      directory="templates"
+      layer=".interfaces.IThemeSpecific" />
+
+  <!-- Override for Views - The Register/UserAdd form -->
+  <browser:page
+      name="new-user"
+      for="plone.app.layout.navigation.interfaces.INavigationRoot"
+      class=".customregistration.AddUserForm"
+      permission="plone.app.controlpanel.UsersAndGroups"
+      layer=".interfaces.IThemeSpecific"
+      />
+
+</configure>

@@ -1,0 +1,6 @@
+<layers>
+ <layer
+     name="eelplone.policy"
+     interface="eelplone.policy.interfaces.IThemeSpecific"
+     />
+</layers>
