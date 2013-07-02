@@ -177,13 +177,16 @@ class ChangeOwner(grok.View):
         #user = acl_users.getUserById(new_owner)
         mt = getToolByName(self.context, 'portal_membership')
         user = mt.getMemberById(new_owner)
+        utils = self.context.plone_utils
 
         if user is None:
             user = self.membership.getMemberById(new_owner)
             if user is None:
                 raise KeyError, 'Only retrievable users in this site can be made owners.'
+        
+        utils.changeOwnership(obj, user)
 
-        obj.changeOwnership(user)
+        #obj.changeOwnership(user)
 
 
         #2. Remove old authors if we was asked to and add the new_owner
