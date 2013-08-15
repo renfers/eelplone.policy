@@ -7,7 +7,7 @@
 from setuptools import setup, find_packages
 
 setup(name = "eelplone.policy",
-    version = "1.1",
+    version = "1.2.1",
     description = "A Plone policy and customization product",
     author = "",
     author_email = "",

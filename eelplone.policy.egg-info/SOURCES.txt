@@ -8,10 +8,12 @@ eelplone.policy.egg-info/namespace_packages.txt
 eelplone.policy.egg-info/requires.txt
 eelplone.policy.egg-info/top_level.txt
 eelplone/policy/__init__.py
+eelplone/policy/adapter.py
 eelplone/policy/changeowner.py
 eelplone/policy/customregistration.py
 eelplone/policy/interfaces.py
 eelplone/policy/setuphandlers.py
+eelplone/policy/userdataschema.py
 eelplone/policy/views.py
 eelplone/policy/Extensions/Install.py
 eelplone/policy/Extensions/__init__.py

@@ -10,7 +10,7 @@
 from zope.i18nmessageid import MessageFactory
 
 messageFactory = MessageFactory('eelplone.policy')
-
+_ = messageFactory
 #import patches
 
 def initialize(context):

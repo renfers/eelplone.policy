@@ -10,5 +10,10 @@
   <property name="title">EEL integration properties</property>
   <property name="change_password_url_for_etat" type="string">https://prod.etat-ge.ch/ginamanager/</property>
   <property name="change_password_url_for_eleves" type="string">https://ge.ch/ginaedu_public/password/</property>
+  <!-- Fields that will be on the form after installation of the product -->
+  <property name="user_registration_fields" type="lines">
+   <element value="memberOf" />
+  </property>
+
  </object>
 </object>
