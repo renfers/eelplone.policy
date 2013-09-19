@@ -8,4 +8,11 @@
     visible="True" i18n:attributes="title">
   <permission>Manage portal</permission>
  </configlet>
+ <configlet  i18n:domain="eelplone.policy"
+    title="EEL - Change Sharing" action_id="eel_change_sharing"
+    appId="eelplone.policy" category="Products" condition_expr=""
+    url_expr="string:${portal_url}/changesharing"
+    visible="True" i18n:attributes="title">
+  <permission>Manage portal</permission>
+ </configlet>
 </object>

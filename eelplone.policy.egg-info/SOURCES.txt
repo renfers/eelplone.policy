@@ -1,3 +1,4 @@
+README.rst
 setup.py
 eelplone/__init__.py
 eelplone.policy.egg-info/PKG-INFO
@@ -10,6 +11,7 @@ eelplone.policy.egg-info/top_level.txt
 eelplone/policy/__init__.py
 eelplone/policy/adapter.py
 eelplone/policy/changeowner.py
+eelplone/policy/changesharing.py
 eelplone/policy/customregistration.py
 eelplone/policy/interfaces.py
 eelplone/policy/setuphandlers.py

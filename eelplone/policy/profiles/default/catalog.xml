@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<object name="portal_catalog" meta_type="Plone Catalog Tool">
+ <index name="localRoles" meta_type="KeywordIndex">
+        <indexed_attr value="localRoles"/>
+ </index>
+        <!-- Add a new metadata column which will read from context.localRoles() function -->
+        <column value="localRoles"/>
+</object>
